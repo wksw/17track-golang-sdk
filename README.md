@@ -22,7 +22,7 @@ go generate
 ### Registe
 
 ```golang
-    client, err := track17.NewClient("api-key", "https://api.17track.net/")
+    client, err := track17.NewClient("api-key")
 	if err != nil {
 		log.Fatal(err.Error())
 	}

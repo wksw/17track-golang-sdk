@@ -20,9 +20,9 @@ type Client struct {
 }
 
 // NewClient create a new paasport client
-func NewClient(secret, endpoint string, configures ...configurer) (*Client, error) {
+func NewClient(secret string, configures ...configurer) (*Client, error) {
 	conf := &Config{
-		endpoint: endpoint,
+		endpoint: ENDPOINT,
 		secret:   secret,
 	}
 	for _, configure := range configures {
@@ -84,6 +84,13 @@ func (c *Client) newTransport() (*http.Transport, error) {
 func (c *Client) WithApiVersion(apiVersion string) {
 	if apiVersion != "" {
 		c.conf.apiVersion = apiVersion
+	}
+}
+
+// WithEndpoint set api endpoint
+func (c *Client) WithEndpoint(endpoint string) {
+	if endpoint != "" {
+		c.conf.endpoint = endpoint
 	}
 }
 

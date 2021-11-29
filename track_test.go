@@ -8,7 +8,7 @@ import (
 
 func TestRegiste(t *testing.T) {
 	// apiKey is defined in file config_test.go, it will be ignored when push code into remote repo
-	client, err := NewClient(apiKey, "https://api.17track.net/")
+	client, err := NewClient(apiKey)
 	if err != nil {
 		t.Error(err.Error())
 		t.FailNow()
@@ -28,7 +28,7 @@ func TestRegiste(t *testing.T) {
 }
 
 func TestChangeCarrier(t *testing.T) {
-	client, err := NewClient(apiKey, "https://api.17track.net/")
+	client, err := NewClient(apiKey)
 	if err != nil {
 		t.Error(err.Error())
 		t.FailNow()

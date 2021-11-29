@@ -16,4 +16,6 @@ const (
 	PROJECT_NAME = "17track"
 	// DEFAULT_API_VERSION defautl api version
 	DEFAULT_API_VERSION = "track/v1"
+	// ENDPOINT api endpoint
+	ENDPOINT = "https://api.17track.net"
 )
