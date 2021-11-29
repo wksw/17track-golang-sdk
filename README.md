@@ -22,15 +22,15 @@ go generate
 ### Registe
 
 ```golang
-    client, err := track17.NewClient("api-key")
-	if err != nil {
-		log.Fatal(err.Error())
-	}
-	resp, rerr := client.Registe([]*pb.TrackReq{
-		{Number: "RR123456789CN", Carrier: 3011},
-	})
-	if rerr != nil {
-		log.Fatalf("%v", rerr)
-	}
-	log.Printf("%v\n", resp)
+client, err := track17.NewClient("api-key")
+if err != nil {
+    log.Fatal(err.Error())
+}
+resp, rerr := client.Registe([]*pb.TrackReq{
+    {Number: "RR123456789CN", Carrier: 3011},
+})
+if rerr != nil {
+    log.Fatalf("%v", rerr)
+}
+log.Printf("%v\n", resp)
 ```
