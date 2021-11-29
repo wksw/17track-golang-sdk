@@ -23,7 +23,7 @@ func TestRegiste(t *testing.T) {
 }
 
 func TestChangeCarrier(t *testing.T) {
-	client, err := NewClient("shit api define", "https://api.17track.net/")
+	client, err := NewClient("api-key", "https://api.17track.net/")
 	if err != nil {
 		t.Error(err.Error())
 		t.FailNow()
