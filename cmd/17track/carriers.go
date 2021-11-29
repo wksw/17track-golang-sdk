@@ -30,12 +30,12 @@ func genCarriers(g *Generator) {
 	// g.Printf("import \"strconv\"\n") // Used by all methods.
 
 	// Run generate for each type.
-	g.Printf("// Carrier the carrier define \n")
-	g.Printf("type Carrier int32")
-	g.Printf("\n")
+	// g.Printf("// Carrier the carrier define \n")
+	// g.Printf("type Carrier int32")
+	// g.Printf("\n")
 
 	g.Printf("// Carriers 17track defined carrier list\n")
-	g.Printf(`var Carriers = map[Carrier]struct{
+	g.Printf(`var Carriers = map[int32]struct{
 		Key int32
 		CanTrack bool
 		Country int32

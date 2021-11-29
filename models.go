@@ -16,9 +16,9 @@ type Error struct {
 // TrackAccept 成功返回
 //go:generate 17track
 type TrackAccept struct {
-	Origin  int32   `json:"origin"`
-	Number  string  `json:"number"`
-	Carrier Carrier `json:"carrier"`
+	Origin  int32  `json:"origin"`
+	Number  string `json:"number"`
+	Carrier int32  `json:"carrier"`
 }
 
 // TrackReject 失败返回
@@ -35,11 +35,11 @@ type RejectError struct {
 
 // TrackReq 运单请求
 type TrackReq struct {
-	Number        string  `json:"number"`
-	Carrier       Carrier `json:"carrier"`
-	FinalCarrier  Carrier `json:"final_carrier"`
-	AutoDetection bool    `json:"auto_detection"`
-	Tag           string  `json:"tag"`
+	Number        string `json:"number"`
+	Carrier       int32  `json:"carrier"`
+	FinalCarrier  int32  `json:"final_carrier"`
+	AutoDetection bool   `json:"auto_detection"`
+	Tag           string `json:"tag"`
 }
 
 // TrackResp 运单返回
@@ -53,17 +53,17 @@ type TrackResp struct {
 
 // ChangeCarrierReq 修改运输商请求
 type ChangeCarrierReq struct {
-	Number          string  `json:"number"`
-	OldCarrier      Carrier `json:"carrier_old"`
-	NewCarrier      Carrier `json:"carrier_new"`
-	OldFinalCarrier Carrier `json:"final_carrier_old"`
-	NewFinalCarrier Carrier `json:"final_carrier_new"`
+	Number          string `json:"number"`
+	OldCarrier      int32  `json:"carrier_old"`
+	NewCarrier      int32  `json:"carrier_new"`
+	OldFinalCarrier int32  `json:"final_carrier_old"`
+	NewFinalCarrier int32  `json:"final_carrier_new"`
 }
 
 // TrackUpdateReq 运单信息更新请求
 type TrackUpdateReq struct {
-	Number  string  `json:"number"`
-	Carrier Carrier `json:"carrier"`
+	Number  string `json:"number"`
+	Carrier int32  `json:"carrier"`
 	Items   struct {
 		Tag string `json:"tag"`
 	} `json:"items"`
@@ -99,17 +99,29 @@ const (
 	TrackingStateStop TrackingState = 0
 )
 
+// PushState 推送结果
+type PushState int32
+
+const (
+	// PushStateNotPush 未推送
+	PushStateNotPush PushState = 0
+	// PushStateSuccess 推送成功
+	PushStateSuccess PushState = 1
+	// PushStateFailure 推送失败
+	PushStateFailure PushState = 2
+)
+
 // TrackListReq 运单列表请求
 type TrackListReq struct {
 	Number           string        `json:"number"`
-	Carrier          Carrier       `json:"carrier"`
+	Carrier          int32         `json:"carrier"`
 	RegisteTimeFrom  string        `json:"registe_time_from"`
 	RegisteTimeTo    string        `json:"registe_time_to"`
 	TrackingTimeFrom string        `json:"tracking_time_from"`
 	TrackingTimeTo   string        `json:"tracking_time_to"`
 	PushTimeFrom     string        `json:"push_time_from"`
 	PushTimeTo       string        `json:"push_time_to"`
-	PushState        int32         `json:"push_state"`
+	PushState        PushState     `json:"push_state"`
 	StopTimeFrom     string        `json:"stop_time_from"`
 	StopTimeTo       string        `json:"stop_time_to"`
 	PackageState     PackageState  `json:"package_state"`

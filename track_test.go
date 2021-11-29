@@ -2,6 +2,8 @@ package track17
 
 import (
 	"testing"
+
+	pb "github.com/wksw/17track-golang-sdk/proto"
 )
 
 func TestRegiste(t *testing.T) {
@@ -10,7 +12,7 @@ func TestRegiste(t *testing.T) {
 		t.Error(err.Error())
 		t.FailNow()
 	}
-	resp, rerr := client.Registe([]*TrackReq{
+	resp, rerr := client.Registe([]*pb.TrackReq{
 		{Number: "RR123456789CN", Carrier: 3011},
 	})
 	if rerr != nil {
@@ -26,8 +28,8 @@ func TestChangeCarrier(t *testing.T) {
 		t.Error(err.Error())
 		t.FailNow()
 	}
-	resp, rerr := client.ChangeCarrier([]*ChangeCarrierReq{
-		{Number: "RR123456789CN", OldCarrier: 3011, NewCarrier: 3012},
+	resp, rerr := client.ChangeCarrier([]*pb.ChangeCarrierReq{
+		{Number: "RR123456789CN", CarrierOld: 3011, CarrierNew: 3012},
 	})
 	if rerr != nil {
 		t.Errorf("%+v", rerr)

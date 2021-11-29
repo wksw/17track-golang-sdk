@@ -1,0 +1,218 @@
+syntax = "proto3";
+
+package track17;
+
+// 错误返回
+message Error {
+    int32 code = 1;
+    string message = 2;
+    message ErrorData {
+        repeated RejectError errors = 1;
+    }
+    ErrorData data = 3;
+}
+
+// 错误信息
+message RejectError {
+    int32 Code = 1;
+    string message = 2;
+}
+
+// 成功返回
+message TrackAccept {
+    int32 origin = 1;
+    string number = 2;
+    int32 carrier = 3;
+}
+
+message TrackReject {
+    string number  = 1;
+    RejectError  error = 2;
+}
+
+message TrackReq {
+    string number = 1;
+    int32 carrier = 2;
+    int32 final_carrier = 3;
+    bool auto_detection = 4;
+    string tag = 5;
+}
+
+message TrackResp {
+    int32 code = 1;
+    message Data {
+        repeated TrackAccept accepted = 1;
+        repeated TrackReject  rejected = 2;
+    }
+    Data data  = 2;
+}
+
+message ChangeCarrierReq {
+    string number = 1;
+    int32 carrier_old = 2;
+    int32 carrier_new = 3;
+    int32 final_carrier_old = 4;
+    int32 final_carrier_new = 5;
+}
+
+message TrackUpdateReq {
+    string number = 1;
+    int32 carrier = 2;
+    message Item {
+        string tag = 1;
+    }
+    Item items = 3;
+}
+
+// TrackListReq 运单列表请求
+message TrackListReq {
+    string number = 1;
+    int32 carrier = 2;
+    string registe_time_from = 3;
+    string registe_time_to = 4;
+    string tracking_time_from = 5;
+    string tracking_time_to = 6;
+    string push_time_from = 7;
+    string push_time_to = 8;
+    PushState push_state = 9;
+    string stop_time_from = 10;
+    string stop_time_to = 11;
+    PackageState package_state = 12;
+    int32 page_no = 13;
+}
+
+
+// TrackListResp 运单列表返回
+message TrackListResp {
+    int32 code = 1;
+    message Data {
+        message Accepted {
+            string number = 1;
+            int32 w1 = 2;
+            int32 w2 = 3;
+            int32 b = 4;
+            int32 c = 5;
+            PackageState e = 6;
+            string rt = 7;
+            string tt = 8;
+            string pt = 9;
+            int32 ps = 10;
+            string st = 11;
+            StopTrackReason  sr = 12;
+            bool ir = 13;
+            bool ts = 14;
+            int32 mc = 15;
+            string tag = 16;
+        }
+        Accepted accepted = 1;
+        TrackReject rejected = 2;
+    }
+}
+
+// 物流详情
+message TrackInfo {
+    int32 code = 1;
+    message Data {
+        message Accepted {
+            string number = 1;
+            string tag = 2;
+            message Track {
+                int32 w1 = 1;
+                int32 w2 = 2;
+                int32 b = 3;
+                int32 c = 4;
+                PackageState e = 5;
+                int32 f = 6;
+                repeated TrackEvent z0 = 7;
+                repeated TrackEvent  z1 = 8;
+                repeated TrackEvent z2 = 9;
+                repeated TrackEvent z9 = 10;
+                int32 ygt1 = 11;
+                int32 ygt2 = 12;
+                int32 ygt9 = 13;
+                int32 ylt1 = 14;
+                int32 ylt2 = 15;
+                int32 ylt9 = 16;
+                CarrierState is1 = 17;
+                CarrierState is2 = 18;
+                string ln1 = 19;
+                string ln2 = 20;
+                string ln9 = 21;
+                string hs = 22;
+                string yt = 23;
+                TrackExpand zex = 24;
+
+            }
+            Track track = 3;
+        }
+        repeated Accepted accepted = 1;
+        repeated TrackReject rejected = 2;
+    }
+}
+
+// 追踪扩展
+message TrackExpand {
+    string trC = 1;
+    string trN = 2;
+    string dtS = 3;
+    string dtP = 4;
+    string dtD = 5;
+    string dtL = 6;
+    string dt = 7;
+    string psex = 8;
+}
+
+// 追踪事件
+message TrackEvent {
+    string a = 1;
+    string b = 2;
+    string c = 3;
+    string d = 4;
+    string z = 5;
+}
+
+// 推送结果
+enum PushState {
+    PS_NOT_PUSH = 0;
+    PS_SUCCESS = 1;
+    PS_FAILURE = 2;
+}
+
+// 运输商状态
+enum CarrierState {
+    CS_UNRECOGNIZED = 0;
+    CS_NORMAL =  1;
+    CS_NOTFOUND = 2;
+    CS_SITE_ERR = 10;
+    CS_PROCESS_ERR = 11;
+    CS_FETCH_ERR = 12;
+    CS_SITE_ERR_USE_CACHE = 20;
+    CS_PROCESS_ERR_USE_CACHE = 21;
+    CS_FETCH_ERR_USE_CACHE = 22;
+}
+
+// 包裹状态
+enum PackageState {
+    PKGS_NOTFOUND = 0;
+    PKGS_INTRANSIT = 10;
+    PKGS_TOOLONG = 20;
+    PKGS_ARRIVED = 30;
+    PKGS_FAIL = 35;
+    PKGS_SUCCESS = 40;
+    PKGS_ABNORMAL = 50;
+}
+
+// 追踪状态
+enum TrackState {
+    TS_STOP = 0;
+    TS_RUNNING = 1;
+}
+
+// 停止追踪原因
+enum StopTrackReason {
+    STR_UNKNOWN = 0;
+    STR_EXPIRE = 1;
+    STR_API=  2;
+    STR_ARTIFICIAL = 3;
+    STR_INVALID_CARRIER = 4;
+}

@@ -24,12 +24,12 @@ func genCountries(g *Generator) {
 	// g.Printf("import \"strconv\"\n") // Used by all methods.
 
 	// Run generate for each type.
-	g.Printf("// Country the country define \n")
-	g.Printf("type Country int32")
-	g.Printf("\n")
+	// g.Printf("// Country the country define \n")
+	// g.Printf("type Country int32")
+	// g.Printf("\n")
 
 	g.Printf("// Countries 17track defined country list\n")
-	g.Printf(`var Countries = map[Country]struct{
+	g.Printf(`var Countries = map[int32]struct{
 		Key int32
 		Name string}{`)
 	g.Printf("\n")
