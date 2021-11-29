@@ -1,5 +1,6 @@
 /*
 	17track数据结构定义， 详细信息请参考https://console.17track.net/zh-cn/doc
+	以protobuf的方式定义，此处定义的数据结构不在使用
 */
 
 package track17

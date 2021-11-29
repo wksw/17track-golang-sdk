@@ -1,3 +1,4 @@
+// 17track数据结构定义， 详细信息请参考https://console.17track.net/zh-cn/doc
 syntax = "proto3";
 
 package track17;
