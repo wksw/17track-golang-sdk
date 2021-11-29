@@ -64,7 +64,7 @@
 //
 // to suppress it in the output.
 
-package main // import "github.com/wksw/17track-golang-sdk/cmd"
+package main // import "github.com/wksw/17track-golang-sdk/cmd/17track"
 
 import (
 	"flag"
