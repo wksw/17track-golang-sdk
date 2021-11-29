@@ -2,11 +2,8 @@
 
 package track17
 
-// Country the country define
-type Country int32
-
 // Countries 17track defined country list
-var Countries = map[Country]struct {
+var Countries = map[int32]struct {
 	Key  int32
 	Name string
 }{

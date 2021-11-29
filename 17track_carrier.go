@@ -2,11 +2,8 @@
 
 package track17
 
-// Carrier the carrier define
-type Carrier int32
-
 // Carriers 17track defined carrier list
-var Carriers = map[Carrier]struct {
+var Carriers = map[int32]struct {
 	Key          int32
 	CanTrack     bool
 	Country      int32
