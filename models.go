@@ -142,7 +142,7 @@ type TrackListResp struct {
 			W2     int32           `json:"w2"`
 			B      int32           `json:"b"`
 			C      int32           `json:"c"`
-			E      int32           `json:"e"`
+			E      PackageState    `json:"e"`
 			RT     string          `json:"rt"`
 			TT     string          `json:"tt"`
 			PT     string          `json:"pt"`
@@ -194,7 +194,7 @@ type TrackInfo struct {
 				W2   int32        `json:"w2"`
 				B    int32        `json:"b"`
 				C    int32        `json:"c"`
-				E    int32        `json:"e"`
+				E    PackageState `json:"e"`
 				F    int32        `json:"f"`
 				Z0   []TrackEvent `json:"z0"`
 				Z1   []TrackEvent `json:"z1"`
