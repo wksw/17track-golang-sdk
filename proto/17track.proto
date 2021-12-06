@@ -142,7 +142,7 @@ message Track {
     string              ln1  = 19;
     string              ln2  = 20;
     string              ln9  = 21;
-    string              hs   = 22;
+    int32               hs   = 22;
     string              yt   = 23;
     TrackExpand         zex  = 24;
 }
