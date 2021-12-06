@@ -149,14 +149,14 @@ message Track {
 
 // 追踪扩展
 message TrackExpand {
-    string trC  = 1;
+    int32 trC  = 1;
     string trN  = 2;
-    string dtS  = 3;
-    string dtP  = 4;
-    string dtD  = 5;
-    string dtL  = 6;
-    string dt   = 7;
-    string psex = 8;
+    int64 dtS  = 3;
+    int64 dtP  = 4;
+    int64 dtD  = 5;
+    int64 dtL  = 6;
+    int64 dt   = 7;
+    int32 psex = 8;
 }
 
 // 追踪事件
