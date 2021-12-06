@@ -134,9 +134,9 @@ message Track {
     int32               ygt1 = 11;
     int32               ygt2 = 12;
     int32               ygt9 = 13;
-    int32               ylt1 = 14;
-    int32               ylt2 = 15;
-    int32               ylt9 = 16;
+    string               ylt1 = 14;
+    string               ylt2 = 15;
+    string               ylt9 = 16;
     CarrierState        is1  = 17;
     CarrierState        is2  = 18;
     string              ln1  = 19;
