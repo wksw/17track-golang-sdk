@@ -127,7 +127,7 @@ message Track {
     int32        c           = 4;
     PackageState e           = 5;
     int32        f           = 6;
-    repeated TrackEvent z0   = 7;
+    TrackEvent   z0          = 7;
     repeated TrackEvent z1   = 8;
     repeated TrackEvent z2   = 9;
     repeated TrackEvent z9   = 10;
