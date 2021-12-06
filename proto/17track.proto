@@ -117,6 +117,7 @@ message TrackInfo {
         repeated Accepted accepted    = 1;
         repeated TrackReject rejected = 2;
     }
+    Data data = 2;
 }
 
 // 追踪详情
