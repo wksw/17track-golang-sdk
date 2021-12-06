@@ -61,7 +61,7 @@ func (c *Client) newTransport() (*http.Transport, error) {
 		MaxIdleConnsPerHost:   c.conf.HTTPMaxConns.MaxIdleConnsPerHost,
 		IdleConnTimeout:       c.conf.HTTPTimeout.IdleConnTimeout,
 		ResponseHeaderTimeout: c.conf.HTTPTimeout.HeaderTimeout,
-		TLSClientConfig:       &tls.Config{InsecureSkipVerify: c.conf.sslVerify},
+		TLSClientConfig:       &tls.Config{InsecureSkipVerify: !c.conf.sslVerify},
 	}
 	if c.conf.proxyHost != "" {
 		proxyUrl, err := url.Parse(c.conf.proxyHost)
