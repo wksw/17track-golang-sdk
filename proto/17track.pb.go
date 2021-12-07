@@ -1534,10 +1534,10 @@ func (m *Track) GetZex() *TrackExpand {
 type TrackExpand struct {
 	TrC                  int32    `protobuf:"varint,1,opt,name=trC,proto3" json:"trC" form:"trC"`
 	TrN                  string   `protobuf:"bytes,2,opt,name=trN,proto3" json:"trN" form:"trN"`
-	DtS                  int64    `protobuf:"varint,3,opt,name=dtS,proto3" json:"dtS,string" form:"dtS"`
-	DtP                  int64    `protobuf:"varint,4,opt,name=dtP,proto3" json:"dtP,string" form:"dtP"`
-	DtD                  int64    `protobuf:"varint,5,opt,name=dtD,proto3" json:"dtD,string" form:"dtD"`
-	DtL                  int64    `protobuf:"varint,6,opt,name=dtL,proto3" json:"dtL,string" form:"dtL"`
+	DtS                  int64    `protobuf:"varint,3,opt,name=dtS,proto3" json:"dtS" form:"dtS"`
+	DtP                  int64    `protobuf:"varint,4,opt,name=dtP,proto3" json:"dtP" form:"dtP"`
+	DtD                  int64    `protobuf:"varint,5,opt,name=dtD,proto3" json:"dtD" form:"dtD"`
+	DtL                  int64    `protobuf:"varint,6,opt,name=dtL,proto3" json:"dtL" form:"dtL"`
 	Dt                   int64    `protobuf:"varint,7,opt,name=dt,proto3" json:"dt,string" form:"dt"`
 	Psex                 int32    `protobuf:"varint,8,opt,name=psex,proto3" json:"psex" form:"psex"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
