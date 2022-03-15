@@ -1538,7 +1538,7 @@ type TrackExpand struct {
 	DtP                  int64    `protobuf:"varint,4,opt,name=dtP,proto3" json:"dtP" form:"dtP"`
 	DtD                  int64    `protobuf:"varint,5,opt,name=dtD,proto3" json:"dtD" form:"dtD"`
 	DtL                  int64    `protobuf:"varint,6,opt,name=dtL,proto3" json:"dtL" form:"dtL"`
-	Dt                   int64    `protobuf:"varint,7,opt,name=dt,proto3" json:"dt,string" form:"dt"`
+	Dt                   int64    `protobuf:"varint,7,opt,name=dt,proto3" json:"dt" form:"dt"`
 	Psex                 int32    `protobuf:"varint,8,opt,name=psex,proto3" json:"psex" form:"psex"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
