@@ -56,8 +56,8 @@ func (c Client) GetTrackInfo(in []*pb.TrackReq) (*pb.TrackInfo, *Error) {
 }
 
 // Delete 删除运单
-func (c Client) Delete(in []*pb.TrackReq) (*pb.TrackInfo, *Error) {
-	var resp pb.TrackInfo
+func (c Client) Delete(in []*pb.TrackReq) (*pb.TrackResp, *Error) {
+	var resp pb.TrackResp
 	err := c.Do(http.MethodPost, "/deleteTrack", in, &resp)
 	return &resp, err
 }
