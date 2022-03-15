@@ -54,3 +54,10 @@ func (c Client) GetTrackInfo(in []*pb.TrackReq) (*pb.TrackInfo, *Error) {
 	err := c.Do(http.MethodPost, "/gettrackinfo", in, &resp)
 	return &resp, err
 }
+
+// Delete 删除运单
+func (c Client) Delete(in []*pb.TrackReq) (*pb.TrackInfo, *Error) {
+	var resp pb.TrackInfo
+	err := c.Do(http.MethodPost, "/deleteTrack", in, &resp)
+	return &resp, err
+}
