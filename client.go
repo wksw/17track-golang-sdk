@@ -20,7 +20,7 @@ type Client struct {
 }
 
 // NewClient create a new paasport client
-func NewClient(secret string, configures ...configurer) (*Client, error) {
+func NewClient(secret string, configures ...Configurer) (*Client, error) {
 	conf := &Config{
 		endpoint: ENDPOINT,
 		secret:   secret,

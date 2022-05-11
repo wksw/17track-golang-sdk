@@ -34,7 +34,8 @@ type HTTPMaxConns struct {
 	MaxIdleConnsPerHost int
 }
 
-type configurer func(conf *Config)
+// Configurer 配置
+type Configurer func(conf *Config)
 
 func (c *Config) withDefault() {
 	if c.apiVersion == "" {
@@ -46,21 +47,21 @@ func (c *Config) withDefault() {
 }
 
 // WithSslVerify set sslVerify
-func WithSslVerify(sslVerify bool) configurer {
+func WithSslVerify(sslVerify bool) Configurer {
 	return func(conf *Config) {
 		conf.sslVerify = sslVerify
 	}
 }
 
 // WithTimeout set timeout
-func WithTimeout(httpTimeout HTTPTimeout) configurer {
+func WithTimeout(httpTimeout HTTPTimeout) Configurer {
 	return func(conf *Config) {
 		conf.HTTPTimeout = httpTimeout
 	}
 }
 
 // WithProxy set proxy
-func WithProxy(proxyHost, proxyUser, proxyPwd string) configurer {
+func WithProxy(proxyHost, proxyUser, proxyPwd string) Configurer {
 	return func(conf *Config) {
 		conf.proxyHost = proxyHost
 		conf.proxyUser = proxyUser
@@ -69,14 +70,14 @@ func WithProxy(proxyHost, proxyUser, proxyPwd string) configurer {
 }
 
 // WithMaxConnections set max connections
-func WithMaxConnections(httpMaxConns HTTPMaxConns) configurer {
+func WithMaxConnections(httpMaxConns HTTPMaxConns) Configurer {
 	return func(conf *Config) {
 		conf.HTTPMaxConns = httpMaxConns
 	}
 }
 
 // WithApiVersion set api version
-func WithApiVersion(apiVersion string) configurer {
+func WithApiVersion(apiVersion string) Configurer {
 	return func(conf *Config) {
 		conf.apiVersion = apiVersion
 	}
