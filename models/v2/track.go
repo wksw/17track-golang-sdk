@@ -48,8 +48,8 @@ type TrackRespError struct {
 // TrackInfo 物流追踪详情
 type TrackInfo struct {
 	ShippingInfo struct {
-		ShipperAddress   *TrackLocation `json:"shipper_address"`
-		RecipientAddress *TrackLocation `json:"recipient_address"`
+		ShipperAddress   TrackLocation `json:"shipper_address"`
+		RecipientAddress TrackLocation `json:"recipient_address"`
 	} `json:"shipping_info"`
 	LatestStatus struct {
 		Status         string `json:"status"`
