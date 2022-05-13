@@ -89,12 +89,12 @@ type TrackInfo struct {
 	Tracking struct {
 		ProvidersHash int64 `json:"providers_hash"`
 		Providers     []struct {
-			Provider         *TrackProvider `json:"provider"`
-			ServiceType      string         `json:"service_type"`
-			LatestSyncStatus string         `json:"latest_sync_status"`
-			LatestSyncTime   string         `json:"latest_sync_time"`
-			EventsHash       int64          `json:"events_hash"`
-			Events           []*TrackEvent  `json:"events"`
+			Provider         TrackProvider `json:"provider"`
+			ServiceType      string        `json:"service_type"`
+			LatestSyncStatus string        `json:"latest_sync_status"`
+			LatestSyncTime   string        `json:"latest_sync_time"`
+			EventsHash       int64         `json:"events_hash"`
+			Events           []*TrackEvent `json:"events"`
 		} `json:"providers"`
 	} `json:"tracking"`
 }
@@ -124,10 +124,10 @@ type TrackProvider struct {
 
 // TrackEvent 物流追踪事件
 type TrackEvent struct {
-	TimeISO     string         `json:"time_iso"`
-	TimeUTC     string         `json:"time_utc"`
-	Description string         `json:"description"`
-	Location    string         `json:"location"`
-	Stage       string         `json:"stage"`
-	Address     *TrackLocation `json:"address"`
+	TimeISO     string        `json:"time_iso"`
+	TimeUTC     string        `json:"time_utc"`
+	Description string        `json:"description"`
+	Location    string        `json:"location"`
+	Stage       string        `json:"stage"`
+	Address     TrackLocation `json:"address"`
 }
