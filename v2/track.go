@@ -32,8 +32,8 @@ func (c Client) Registe(in []*modelsv2.TrackReq) (*modelsv2.TrackResp, *v1.Error
 }
 
 // GetInfo 获取物流详情
-func (c Client) GetInfo(in []*modelsv2.TrackReq) (*modelsv2.TrackInfoResp, *v1.Error) {
-	var resp modelsv2.TrackInfoResp
+func (c Client) GetInfo(in []*modelsv2.TrackReq) (*modelsv2.TrackResp, *v1.Error) {
+	var resp modelsv2.TrackResp
 	err := c.C.Do(http.MethodPost, "/gettrackinfo", in, &resp)
 	return &resp, err
 }

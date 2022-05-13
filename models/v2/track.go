@@ -24,10 +24,12 @@ type TrackRespData struct {
 
 // TrackRespAccept 物流追踪成功返回
 type TrackRespAccept struct {
-	Origin  int32  `json:"origin"`
-	Number  string `json:"number"`
-	Tag     string `json:"tag"`
-	Carrier int32  `json:"carrier"`
+	Origin    int32      `json:"origin"`
+	Number    string     `json:"number"`
+	Tag       string     `json:"tag"`
+	Carrier   int32      `json:"carrier"`
+	Param     string     `json:"param"`
+	TrackInfo *TrackInfo `json:"track_info"`
 }
 
 // TrackRespReject 物流追踪错误返回
@@ -41,27 +43,6 @@ type TrackRespReject struct {
 type TrackRespError struct {
 	Code    int32  `json:"code"`
 	Message string `json:"message"`
-}
-
-// TrackInfoResp 物流详情返回
-type TrackInfoResp struct {
-	Code int32          `json:"code"`
-	Data *TrackInfoData `json:"data"`
-}
-
-// TrackInfoData 物流追踪详情
-type TrackInfoData struct {
-	Accepted []*TrackInfoAccept `json:"accepted"`
-	Rejected []*TrackRespReject `json:"rejected"`
-}
-
-// TrackInfoAccept 物流追踪成功数据
-type TrackInfoAccept struct {
-	Number    string     `json:"number"`
-	Carrier   int32      `json:"carrier"`
-	Param     string     `json:"param"`
-	Tag       string     `json:"tag"`
-	TrackInfo *TrackInfo `json:"track_info"`
 }
 
 // TrackInfo 物流追踪详情
