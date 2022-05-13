@@ -104,6 +104,7 @@ type TrackLocation struct {
 	Country     string `json:"country"`
 	State       string `json:"state"`
 	City        string `json:"city"`
+	Street      string `json:"street"`
 	PostalCode  string `json:"postal_code"`
 	Coordinates struct {
 		Long float64 `json:"longitude"`
