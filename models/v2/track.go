@@ -78,7 +78,7 @@ type TrackInfo struct {
 		ServiceType     string `json:"service_type"`
 		WeightRaw       string `json:"weight_raw"`
 		WeightKg        string `json:"weight_kg"`
-		Pieces          int32  `json:"pieces"`
+		Pieces          string `json:"pieces"`
 		Dimensions      int32  `json:"dimensions"`
 		CustomerNumber  string `json:"customer_number"`
 		ReferenceNumber string `json:"reference_number"`
