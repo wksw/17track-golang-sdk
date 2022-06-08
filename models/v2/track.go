@@ -79,7 +79,7 @@ type TrackInfo struct {
 		WeightRaw       string `json:"weight_raw"`
 		WeightKg        string `json:"weight_kg"`
 		Pieces          string `json:"pieces"`
-		Dimensions      int32  `json:"dimensions"`
+		Dimensions      string `json:"dimensions"`
 		CustomerNumber  string `json:"customer_number"`
 		ReferenceNumber string `json:"reference_number"`
 		LocalNumber     string `json:"local_number"`
