@@ -58,3 +58,10 @@ func (c Client) Retrack(in []*modelsv2.TrackReq) (*modelsv2.TrackResp, *v1.Error
 	err := c.C.Do(http.MethodPost, "/retrack", in, &resp)
 	return &resp, err
 }
+
+// Push 重新推送
+func (c Client) Push(in []*modelsv2.TrackReq) (*modelsv2.TrackResp, *v1.Error) {
+	var resp modelsv2.TrackResp
+	err := c.C.Do(http.MethodPost, "/push", in, &resp)
+	return &resp, err
+}
