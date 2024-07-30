@@ -3,6 +3,8 @@ syntax = "proto3";
 
 package track17;
 
+option go_package = "github.com/wksw/17track-golang-sdk/proto";
+
 // 错误返回
 message Error {
     int32     code    = 1;
