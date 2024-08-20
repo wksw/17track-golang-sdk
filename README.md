@@ -11,6 +11,8 @@ go get github.com/wksw/17track-golang-sdk
 
 ```bash
 go get github.com/wksw/17track-golang-sdk/cmd/17track
+# Starting in Go 1.17
+go install github.com/wksw/17track-golang-sdk/cmd/17track
 ```
 
 ### Get Latest carriers and countries
