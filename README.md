@@ -18,7 +18,13 @@ go install github.com/wksw/17track-golang-sdk/cmd/17track
 ### Get Latest carriers and countries
 
 ```bash
+# it's actually execute 17track command
 go generate
+
+# Or execute 17track command
+# it will generage two files, 17track_carrier.go and 17track_country.go
+# at current dir
+17track
 ```
 
 ### Examples
