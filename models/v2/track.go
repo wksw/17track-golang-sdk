@@ -8,6 +8,12 @@ type TrackReq struct {
 	FinalCarrier  int32  `json:"final_carrier"`
 	AutoDetection bool   `json:"auto_detection"`
 	Tag           string `json:"tag"`
+
+	Lang       string `json:"lang,omitempty"`
+	Email      string `json:"email,omitempty"`
+	OrderNo    string `json:"order_no,omitempty"`
+	OrderTime string `json:"order_time,omitempty"`
+	Remark     string `json:"remark,omitempty"`
 }
 
 // TrackResp 物流追踪返回
